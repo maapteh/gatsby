@@ -42,15 +42,11 @@ const Layout: React.FC = ({ children }) => {
         <ThemeProvider theme={theme()}>
             <Container>
                 <GlobalStyles />
-
                 <Title>{title.toUpperCase()}</Title>
-
                 <Tagline>{description}</Tagline>
-
                 <p>
                     <Link to="/">Home</Link> <Link to="/about">About</Link>
                 </p>
-
                 <main>
                     <MDXProvider
                         components={{
@@ -61,9 +57,7 @@ const Layout: React.FC = ({ children }) => {
                         {children}
                     </MDXProvider>
                 </main>
-
-                © {new Date().getFullYear()}
-
+                © {new Date().getFullYear()} - maapteh
             </Container>
         </ThemeProvider>
     );

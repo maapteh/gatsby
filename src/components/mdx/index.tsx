@@ -12,5 +12,5 @@ export const MDXLayoutComponents = {
 };
 
 export const MDXGlobalComponents = {
-    YouTube
+    YouTube,
 };

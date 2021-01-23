@@ -11,8 +11,15 @@ const GlobalStyles = createGlobalStyle`
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   }
   p {
-      margin: 0 0 16px 0;
+      margin: 0 0 16px;
       padding: 0;
+  }
+  ul {
+      margin: 0 0 16px;
+      padding: 0;
+  }
+  a {
+      color: #fff;
   }
 `;
 

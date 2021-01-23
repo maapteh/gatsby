@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
 
-const Link = styled(GatsbyLink)`
+interface Props {
+    isInverted?: boolean;
+}
+
+const Link = styled(GatsbyLink)<Props>`
     color: #fff;
-    text-decoration: underline;
+    text-decoration: ${props => (props.isInverted ? 'none' : 'underline')};
     :hover {
-        text-decoration: none;
+        text-decoration: ${props => (props.isInverted ? 'underline' : 'none')};
     }
 `;
 

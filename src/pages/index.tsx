@@ -1,10 +1,9 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
-import { Link } from '../components/link';
-import { useStaticQuery, graphql } from 'gatsby';
-import { Date } from '../components/date';
-import { Footer } from '../components/footer';
+import { BlockNewsItem } from '../components/block-news-item';
+import { BlockEventItem } from '../components/block-event-item';
 
 const App = () => {
     const data = useStaticQuery(
@@ -22,6 +21,13 @@ const App = () => {
                                 title
                                 published
                                 date(formatString: "MMMM DD, YYYY")
+                                image {
+                                    childImageSharp {
+                                        fixed(width: 90, height: 90) {
+                                            ...GatsbyImageSharpFixed
+                                        }
+                                    }
+                                }
                             }
                             excerpt(pruneLength: 280)
                         }
@@ -57,32 +63,16 @@ const App = () => {
 
             <h3>Latest news</h3>
             <ul>
-                {data?.news.edges.map((item, i) => {
-                    const news = item.node.frontmatter;
-                    return (
-                        <li key={i}>
-                            <Link to={`news/${item.node.slug}`}>
-                                {news.title} {news.date}
-                            </Link>
-                        </li>
-                    );
-                })}
+                {data?.news.edges.map((item, i) => (
+                    <BlockNewsItem item={item} i={i} />
+                ))}
             </ul>
+
             <h3>Latest events</h3>
-            {data?.events.edges.map((item, i) => {
-                const event = item.node.frontmatter;
-                return (
-                    <div key={i} style={{ display: 'flex' }}>
-                        <Date date={event.date} />
-                        <Link to={`event/${item.node.slug}`}>
-                            {event.title}
-                        </Link>
-                    </div>
-                );
-            })}
 
-
-            <Footer />
+            {data?.events.edges.map((item, i) => (
+                <BlockEventItem item={item} i={i} />
+            ))}
         </Layout>
     );
 };
