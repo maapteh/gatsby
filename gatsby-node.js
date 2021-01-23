@@ -31,7 +31,6 @@ function createNewsPages({ data, actions }) {
 
 const createEvents = (createPage, edges) => {
     edges.forEach(({ node }) => {
-        console.log(node.slug);
         createPage({
             path: `event/${node.slug}`,
             component: path.resolve(`./src/templates/event.tsx`),

@@ -73,15 +73,15 @@ const App = () => {
             </p>
             <h3>Latest news</h3>
             <ul>
-                {data?.news.edges.map((item, i) => (
-                    <BlockNewsItem item={item} i={i} />
+                {data?.news.edges.map(item => (
+                    <BlockNewsItem item={item} />
                 ))}
             </ul>
 
             <h3>Latest events</h3>
 
-            {data?.events.edges.map((item, i) => (
-                <BlockEventItem item={item} i={i} />
+            {data?.events.edges.map(item => (
+                <BlockEventItem item={item} />
             ))}
         </Layout>
     );

@@ -20,6 +20,7 @@ const ItemContainer = styled.li`
 type Props = {
     item: {
         node: {
+            id: string;
             slug: string;
             excerpt: string;
             frontmatter: {
@@ -33,13 +34,12 @@ type Props = {
             };
         };
     };
-    i: number;
 };
 
 export const BlockNewsItem: React.FC<Props> = ({ item, i }) => {
     const news = item.node.frontmatter;
     return (
-        <ItemContainer key={i}>
+        <ItemContainer key={item.node.id}>
             <Img fixed={news.image?.childImageSharp.fixed} alt="headshot" />
             <Link to={`news/${item.node.slug}`} isInverted>
                 <strong>{news.title}</strong>

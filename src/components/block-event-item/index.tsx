@@ -11,6 +11,7 @@ const ItemContainer = styled.div`
 type Props = {
     item: {
         node: {
+            id: string;
             slug: string;
             excerpt: string;
             frontmatter: {
@@ -19,13 +20,12 @@ type Props = {
             };
         };
     };
-    i: number;
 };
 
-export const BlockEventItem: React.FC<Props> = ({ item, i }) => {
+export const BlockEventItem: React.FC<Props> = ({ item }) => {
     const event = item.node.frontmatter;
     return (
-        <ItemContainer key={i}>
+        <ItemContainer key={item.node.id}>
             <Date date={event.date} />
             <Link to={`event/${item.node.slug}`} isInverted>
                 <strong>{event.title}</strong>

@@ -1,13 +1,11 @@
 const siteTitle = 'maapteh';
-const siteDescription = 'A Gatsby start';
+const siteDescription = 'A Gatsby exploration';
 const siteAuthor = '@mpth';
-const siteUrl = 'https://foo.bar';
+const siteUrl = 'https://maapteh.vercel.app';
 const siteImage = `${siteUrl}/icons/icon_512x512.png`;
 const siteKeywords = ['gatsby', 'typescript', 'graphql', 'react'];
 
 module.exports = {
-    // FIXME: for now only done to have it working on gh-pages since checkout name is gatsby
-    // pathPrefix: `/gatsby`,
     siteMetadata: {
         title: siteTitle,
         description: siteDescription,
