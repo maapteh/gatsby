@@ -62,6 +62,7 @@ const Layout: React.FC = ({ children }) => {
                     </MDXProvider>
                 </main>
 
+                © {new Date().getFullYear()}
 
             </Container>
         </ThemeProvider>
