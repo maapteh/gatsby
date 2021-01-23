@@ -7,7 +7,7 @@ import { Date } from '../components/date';
 
 // Template is run build-time, see gatsby-node.js
 const NewsPage = ({ data: { mdx }, children }) => {
-    const featuredImgFluid = mdx.frontmatter.image.childImageSharp.fluid;
+    const featuredImgFluid = mdx.frontmatter.image?.childImageSharp?.fluid;
 
     return (
         <Layout>
@@ -15,7 +15,7 @@ const NewsPage = ({ data: { mdx }, children }) => {
 
             <Date date={mdx.frontmatter.date} />
 
-            <Img fluid={featuredImgFluid} />
+            {featuredImgFluid ? <Img fluid={featuredImgFluid} /> : null}
 
             <MDXRenderer>{mdx.body}</MDXRenderer>
         </Layout>
