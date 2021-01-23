@@ -3,6 +3,8 @@ import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
 import { Link } from '../components/link';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Date } from '../components/date';
+import { Footer } from '../components/footer';
 
 const App = () => {
     const data = useStaticQuery(
@@ -28,7 +30,9 @@ const App = () => {
 
                 events: allMdx(
                     sort: { fields: [frontmatter___date], order: DESC }
-                    filter: { fileAbsolutePath: { regex: "//content/events//" } }
+                    filter: {
+                        fileAbsolutePath: { regex: "//content/events//" }
+                    }
                 ) {
                     edges {
                         node {
@@ -37,7 +41,7 @@ const App = () => {
                             frontmatter {
                                 title
                                 published
-                                date(formatString: "MMMM DD, YYYY")
+                                date(formatString: "MMM DD YYYY")
                             }
                             excerpt(pruneLength: 280)
                         }
@@ -52,28 +56,33 @@ const App = () => {
             <SEO />
 
             <h3>Latest news</h3>
-            {data?.news.edges.map((item, i) => {
-                const news = item.node.frontmatter;
+            <ul>
+                {data?.news.edges.map((item, i) => {
+                    const news = item.node.frontmatter;
+                    return (
+                        <li key={i}>
+                            <Link to={`news/${item.node.slug}`}>
+                                {news.title} {news.date}
+                            </Link>
+                        </li>
+                    );
+                })}
+            </ul>
+            <h3>Latest events</h3>
+            {data?.events.edges.map((item, i) => {
+                const event = item.node.frontmatter;
                 return (
-                    <div key={i}>
-                        <Link to={`news/${item.node.slug}`}>
-                            {news.title} {news.date}
+                    <div key={i} style={{ display: 'flex' }}>
+                        <Date date={event.date} />
+                        <Link to={`event/${item.node.slug}`}>
+                            {event.title}
                         </Link>
                     </div>
                 );
             })}
 
-            <h3>Latest events</h3>
-            {data?.events.edges.map((item, i) => {
-                const event = item.node.frontmatter;
-                return (
-                    <div key={i}>
-                        <Link to={`event/${item.node.slug}`}>
-                            {event.title} {event.date}
-                        </Link>
-                    </div>
-                );
-            })}
+
+            <Footer />
         </Layout>
     );
 };

@@ -6,6 +6,8 @@ const siteImage = `${siteUrl}/icons/icon_512x512.png`;
 const siteKeywords = ['gatsby', 'typescript', 'graphql', 'react'];
 
 module.exports = {
+    // FIXME: for now only done to have it working on gh-pages since checkout name is gatsby
+    // pathPrefix: `/gatsby`,
     siteMetadata: {
         title: siteTitle,
         description: siteDescription,
@@ -68,6 +70,18 @@ module.exports = {
             },
         },
         `gatsby-plugin-offline`,
-        `gatsby-plugin-mdx`,
+        {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 1200,
+                        },
+                    },
+                ],
+            },
+        },
     ],
 };

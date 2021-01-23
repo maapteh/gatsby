@@ -9,8 +9,9 @@ const EventPage = ({ data: { mdx }, children }) => {
     return (
         <Layout>
             <h1>{mdx.frontmatter.title} !</h1>
-            <div>{mdx.frontmatter.date}</div>
+
             <Date date={mdx.frontmatter.date} />
+
             <MDXRenderer>{mdx.body}</MDXRenderer>
         </Layout>
     );

@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { theme, GlobalStyles } from '../../styles';
 import { Link } from '../link';
-import { Footer } from '../footer';
 import { MDXLayoutComponents, MDXGlobalComponents } from '../mdx';
 
 const Container = styled.main`
@@ -44,14 +43,13 @@ const Layout: React.FC = ({ children }) => {
             <Container>
                 <GlobalStyles />
 
-                <Link to="/">
-                    <Title>{title.toUpperCase()}</Title>
-                </Link>
-                
+                <Title>{title.toUpperCase()}</Title>
+
                 <Tagline>{description}</Tagline>
 
-                <Link to="/about">About</Link>
-                
+                <p>
+                    <Link to="/">Home</Link> <Link to="/about">About</Link>
+                </p>
 
                 <main>
                     <MDXProvider
@@ -64,7 +62,7 @@ const Layout: React.FC = ({ children }) => {
                     </MDXProvider>
                 </main>
 
-                <Footer />
+
             </Container>
         </ThemeProvider>
     );

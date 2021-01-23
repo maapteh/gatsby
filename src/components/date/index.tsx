@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { useTheme } from '../../styles';
 
-
 const DateContainer = styled.div`
     justify-content: center;
     flex-basis: 90px;
@@ -37,8 +36,8 @@ const DayContainer = styled.span`
 `;
 
 type Props = {
-    date: string
-}
+    date: string;
+};
 export const Date: React.FC<Props> = ({ date }) => {
     if (!date) {
         return null;

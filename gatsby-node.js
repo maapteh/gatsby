@@ -31,7 +31,7 @@ function createNewsPages({ data, actions }) {
 
 const createEvents = (createPage, edges) => {
     edges.forEach(({ node }) => {
-        console.log(node.slug)
+        console.log(node.slug);
         createPage({
             path: `event/${node.slug}`,
             component: path.resolve(`./src/templates/event.tsx`),
@@ -53,7 +53,6 @@ function createEventsPages({ data, actions }) {
     return null;
 }
 
-
 const createPages = async ({ actions, graphql }) => {
     const { data, errors } = await graphql(`
         query {
@@ -68,7 +67,6 @@ const createPages = async ({ actions, graphql }) => {
                         frontmatter {
                             title
                             date
-                            slug
                         }
                     }
                 }
