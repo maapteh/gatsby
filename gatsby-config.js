@@ -17,6 +17,8 @@ module.exports = {
         image: siteImage,
     },
     plugins: [
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -43,8 +45,6 @@ module.exports = {
             },
         },
         `gatsby-plugin-styled-components`,
-        `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
         'gatsby-plugin-react-helmet',
         {
             resolve: `gatsby-plugin-manifest`,

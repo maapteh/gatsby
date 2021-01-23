@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.p`
+export const Paragraph = styled.p`
     text-align: left;
     font-size: 16px;
     line-height: 1.58;

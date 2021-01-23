@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { YouTube } from '../youtube';
-import Title from './Title';
-import Subtitle from './Subtitle';
-import Paragraph from './Paragraph';
+
+import { Title } from './title';
+import { Subtitle } from './subtitle';
+import { Paragraph } from './paragraph';
 
 export const MDXLayoutComponents = {
     h1: props => <Title {...props} />,
