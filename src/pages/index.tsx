@@ -61,6 +61,16 @@ const App = () => {
         <Layout>
             <SEO />
 
+            <p>
+                Nulla eu massa vel quam auctor maximus. Curabitur et congue
+                enim. Praesent non magna pulvinar, molestie felis sed, lobortis
+                purus. Phasellus convallis molestie tellus in hendrerit. Quisque
+                eu ultrices turpis. In non sagittis sapien, eu auctor sapien.
+                Sed cursus aliquam est vitae hendrerit. Mauris a nibh porttitor,
+                sollicitudin massa eu, tincidunt est. Aenean dignissim placerat
+                suscipit. Etiam lacus diam, venenatis vitae suscipit eget,
+                porttitor ut ipsum.
+            </p>
             <h3>Latest news</h3>
             <ul>
                 {data?.news.edges.map((item, i) => (
