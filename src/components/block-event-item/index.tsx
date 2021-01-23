@@ -1,5 +1,4 @@
 import React from 'react';
-import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 import { Link } from '../link';
@@ -7,11 +6,6 @@ import { Date } from '../date';
 
 const ItemContainer = styled.div`
     display: flex;
-
-    .gatsby-image-wrapper {
-        float: left;
-        margin: 0 12px 6px 0;
-    }
 `;
 
 type Props = {

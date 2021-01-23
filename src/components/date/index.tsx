@@ -7,7 +7,9 @@ const DateContainer = styled.div`
     flex-basis: 90px;
     height: 90px;
     width: 90px;
-    margin-right: 32px;
+    min-width: 90px;
+    max-width: 90px;
+    margin-right: 12px;
     padding: 16px;
     text-align: center;
     border-radius: 2px;

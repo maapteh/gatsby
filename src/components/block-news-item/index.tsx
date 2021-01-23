@@ -13,6 +13,7 @@ const ItemContainer = styled.li`
     .gatsby-image-wrapper {
         float: left;
         margin: 0 12px 6px 0;
+        border-radius: 2px;
     }
 `;
 
