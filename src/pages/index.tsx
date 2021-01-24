@@ -91,6 +91,7 @@ const App = () => {
                 </p>
 
                 <h2>Latest news</h2>
+
                 <ul>
                     {data?.news?.edges.map(item => (
                         <BlockNewsItem item={item} />

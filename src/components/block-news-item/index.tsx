@@ -46,20 +46,15 @@ export const BlockNewsItem: React.FC<Props> = ({ item }) => {
     const news = item.node.frontmatter;
     const image = news.image?.childImageSharp.fixed;
     return (
-        <div key={item.node.id}>
-            <ItemContainer key={item.node.id}>
-                {image ? (
-                    <Img
-                        fixed={news.image?.childImageSharp.fixed}
-                        alt="headshot"
-                    />
-                ) : null}
-                <Link to={`news/${item.node.slug}`}>
-                    <strong>{news.title}</strong>
-                    <br />
-                    <i>{news.date}</i>
-                </Link>
-            </ItemContainer>
-        </div>
+        <ItemContainer key={item.node.id}>
+            {image ? (
+                <Img fixed={news.image?.childImageSharp.fixed} alt="headshot" />
+            ) : null}
+            <Link to={`news/${item.node.slug}`}>
+                <strong>{news.title}</strong>
+                <br />
+                <i>{news.date}</i>
+            </Link>
+        </ItemContainer>
     );
 };
