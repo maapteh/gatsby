@@ -19,7 +19,7 @@ const FooterContainer = styled.div`
     padding-bottom: 10px;
 `;
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
     const { blue } = useTheme().colors;
     return (
         <StyledFooter>
@@ -38,5 +38,3 @@ const Footer: React.FC = () => {
         </StyledFooter>
     );
 };
-
-export { Footer };

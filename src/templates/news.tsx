@@ -7,16 +7,21 @@ import { Date } from '../components/date';
 
 // Template is run build-time, see gatsby-node.js
 const NewsPage = ({ data: { mdx }, children }) => {
-    const featuredImgFluid = mdx.frontmatter.image?.childImageSharp?.fluid;
+    const image = mdx.frontmatter.image?.childImageSharp?.fixed;
 
     return (
         <Layout>
             <h1>{mdx.frontmatter.title}</h1>
 
-            <Date date={mdx.frontmatter.date} />
+            {image ? (
+                <div style={{ float: 'left', margin: '0 12px 6px 0' }}>
+                    <Img fixed={image} />
+                </div>
+            ) : null}
 
-            {featuredImgFluid ? <Img fluid={featuredImgFluid} /> : null}
-
+            <div style={{ float: 'left', margin: '0 6px 6px 0' }}>
+                <Date date={mdx.frontmatter.date} />
+            </div>
             <MDXRenderer>{mdx.body}</MDXRenderer>
         </Layout>
     );
@@ -33,8 +38,8 @@ export const query = graphql`
                 date(formatString: "MMM DD YYYY")
                 image {
                     childImageSharp {
-                        fluid(maxWidth: 400) {
-                            ...GatsbyImageSharpFluid
+                        fixed(width: 400) {
+                            ...GatsbyImageSharpFixed
                         }
                     }
                 }

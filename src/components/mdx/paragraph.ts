@@ -5,7 +5,7 @@ export const Paragraph = styled.p`
     font-size: 16px;
     line-height: 1.58;
     letter-spacing: -0.003em;
-    color: #fff;
+    color: #303030;
     margin: 0 0 12px;
     padding: 0;
 `;

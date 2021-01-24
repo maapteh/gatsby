@@ -7,6 +7,8 @@ export default {
         xl: 1280,
     },
     colors: {
+        white: '#fff',
+        black: '#303030',
         blue: '#0099ff',
         darkblue: '#00072e',
         orange: '#FF9429',

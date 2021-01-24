@@ -6,6 +6,9 @@ import { Date } from '../date';
 
 const ItemContainer = styled.div`
     display: flex;
+    a {
+        text-decoration: none;
+    }
 `;
 
 type Props = {
@@ -27,7 +30,7 @@ export const BlockEventItem: React.FC<Props> = ({ item }) => {
     return (
         <ItemContainer key={item.node.id}>
             <Date date={event.date} />
-            <Link to={`event/${item.node.slug}`} isInverted>
+            <Link to={`event/${item.node.slug}`}>
                 <strong>{event.title}</strong>
                 <br />
                 {item.node.excerpt}

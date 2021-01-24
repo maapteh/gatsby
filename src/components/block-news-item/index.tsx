@@ -15,6 +15,12 @@ const ItemContainer = styled.li`
         margin: 0 12px 6px 0;
         border-radius: 2px;
     }
+
+    a {
+        text-decoration: none;
+    }
+
+    clear: both;
 `;
 
 type Props = {
@@ -36,18 +42,24 @@ type Props = {
     };
 };
 
-export const BlockNewsItem: React.FC<Props> = ({ item, i }) => {
+export const BlockNewsItem: React.FC<Props> = ({ item }) => {
     const news = item.node.frontmatter;
+    const image = news.image?.childImageSharp.fixed;
     return (
-        <ItemContainer key={item.node.id}>
-            <Img fixed={news.image?.childImageSharp.fixed} alt="headshot" />
-            <Link to={`news/${item.node.slug}`} isInverted>
-                <strong>{news.title}</strong>
-                <br />
-                <i>{news.date}</i>
-                <br />
-                {item.node.excerpt}
-            </Link>
-        </ItemContainer>
+        <div key={item.node.id}>
+            <ItemContainer key={item.node.id}>
+                {image ? (
+                    <Img
+                        fixed={news.image?.childImageSharp.fixed}
+                        alt="headshot"
+                    />
+                ) : null}
+                <Link to={`news/${item.node.slug}`}>
+                    <strong>{news.title}</strong>
+                    <br />
+                    <i>{news.date}</i>
+                </Link>
+            </ItemContainer>
+        </div>
     );
 };
