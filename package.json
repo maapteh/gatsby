@@ -11,7 +11,7 @@
     "url": "https://github.com/maapteh/gatsby/issues"
   },
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --host=localhost --port=8000",
     "dev": "npm run develop",
     "format": "prettier --config .prettierrc --no-editorconfig --ignore-path \".prettierignore\" --write \"**/*.{js,ts,tsx,graphql}\"",
     "lint": "eslint . --ext ts --ext tsx --ext js --ext jsx",
